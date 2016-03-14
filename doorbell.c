@@ -21,7 +21,6 @@ void bell(unsigned int);
 void ring_doorbell()
 {
 	  uint32_t adcResult, dutyCycle;
-	  volatile uint32_t i;
 
 
 	  ADC14CTL0 |= ADC14ENC |ADC14SC ;    // Start sampling/conversion
@@ -34,18 +33,75 @@ void ring_doorbell()
 	  if (dutyCycle == 0)
 		  dutyCycle  = 1;
 
-	  if(ADC14MEM0 > 9000)
-	  {
-		  alarm(dutyCycle);
-	  }
+		  bell(dutyCycle);
 
 
 }
 
 void bell(unsigned int dutyCycle)
 {
+
 	 TA0CCR0 = dutyCycle;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
+
+   volatile uint32_t i = 100000;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+   i = 100000;
+
+	 TA0CCR0 = 1;                // Change PWM period based on ADC result
+	 TA0CCR4 = TA0CCR0 / 2;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+	 TA0CCR0 = dutyCycle*2;                // Change PWM period based on ADC result
+	 TA0CCR4 = TA0CCR0 / 2;
+
+   i = 100000;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+   i = 100000;
+
+	 TA0CCR0 = 1;                // Change PWM period based on ADC result
+	 TA0CCR4 = TA0CCR0 / 2;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+	 TA0CCR0 = dutyCycle;                // Change PWM period based on ADC result
+	 TA0CCR4 = TA0CCR0 / 2;
+
+   i = 100000;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+   i = 100000;
+
+	 TA0CCR0 = 1;                // Change PWM period based on ADC result
+	 TA0CCR4 = TA0CCR0 / 2;
+
+   //delay for bell 
+   while(i > 0){
+     i--;
+   }
+
+
 
 }
 

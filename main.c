@@ -24,6 +24,22 @@ int main(void)
     P4SEL1 |= BIT3;                         // Configure P4.3 for ADC mic
     P4SEL0 |= BIT3;
 
+    //set up switch 1
+    P1DIR &= ~BIT1;			// make P1.1 and input
+    P1REN |= BIT1;			// enable pull resistor on P1.1
+    P1OUT |= BIT1;			// make it a pull-up resistor
+
+    //set up switch 2
+    P1DIR &= ~BIT4;			// make P1.4 and input
+    P1REN |= BIT4;			// enable pull resistor on P1.4
+    P1OUT |= BIT4;			// make it a pull-up resistor
+
+    //set up LED1 and LED2
+    P1OUT &= ~BIT0;     //start off
+    P2OUT &= ~BIT1;     //start off
+    P1DIR |= BIT0;			// make P1.0 an output
+    P2DIR |= BIT1;			// make P2.1 an output
+
     //P6SEL1 |= BIT0;                         // Configure P6.0 for ADC
     //P6SEL0 |= BIT0;
 
@@ -56,8 +72,13 @@ int main(void)
 
     while (1)
     {
-    	//sample_adc();
-      ring_doorbell();
+        //sample_adc();
+
+        if((P1IN & BIT4) == 0){
+
+        P2OUT |= BIT1;//turn on led2     
+        ring_doorbell();
+        }
     }
 
 }
