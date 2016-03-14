@@ -8,8 +8,14 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./HAL_I2C.obj" \
+"./HAL_OPT3001.obj" \
 "./alarm.obj" \
+"./cpu.obj" \
 "./doorbell.obj" \
+"./gpio.obj" \
+"./i2c.obj" \
+"./interrupt.obj" \
 "./main.obj" \
 "./msp432_startup_ccs.obj" \
 "../msp432p401r.cmd" \
@@ -150,8 +156,8 @@ ece461_p2.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "alarm.pp" "doorbell.pp" "main.pp" "msp432_startup_ccs.pp" 
-	-$(RM) "alarm.obj" "doorbell.obj" "main.obj" "msp432_startup_ccs.obj" 
+	-$(RM) "HAL_I2C.pp" "HAL_OPT3001.pp" "alarm.pp" "cpu.pp" "doorbell.pp" "gpio.pp" "i2c.pp" "interrupt.pp" "main.pp" "msp432_startup_ccs.pp" 
+	-$(RM) "HAL_I2C.obj" "HAL_OPT3001.obj" "alarm.obj" "cpu.obj" "doorbell.obj" "gpio.obj" "i2c.obj" "interrupt.obj" "main.obj" "msp432_startup_ccs.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

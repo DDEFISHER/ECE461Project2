@@ -39,10 +39,8 @@
 									<listOptionValue builtIn="false" value="ccs"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.MSP432_5.2.compilerID.INCLUDE_PATH.1589502011" name="Add dir to #include search path (--include_path, -I)" superClass="com.ti.ccstudio.buildDefinitions.MSP432_5.2.compilerID.INCLUDE_PATH" valueType="includePath">
-									<listOptionValue builtIn="false" value="/home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/ccs"/>
-									<listOptionValue builtIn="false" value="/home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx"/>
-									<listOptionValue builtIn="false" value="/home/daniel/Programs/ti/workspace2/driverlib"/>
 									<listOptionValue builtIn="false" value="&quot;${CCS_BASE_ROOT}/arm/include&quot;"/>
+									<listOptionValue builtIn="false" value="/home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx"/>
 									<listOptionValue builtIn="false" value="&quot;${CCS_BASE_ROOT}/arm/include/CMSIS&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
 								</option>

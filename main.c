@@ -9,8 +9,8 @@
 #include "alarm.h"
 #include "doorbell.h"
 #include "driverlib.h"
-
-
+#include "HAL_I2C.h"
+#include "HAL_OPT3001.h"
 
 #define INT_ADC14_BIT (1<<24)
 #define MCLK_FREQUENCY 1500000
@@ -73,11 +73,19 @@ int main(void)
     __enable_interrupt();                   // Enable NVIC global/master interrupt
     SCB_SCR &= ~SCB_SCR_SLEEPONEXIT;        // Wake up on exit from ISR
 
+    /* Initialize I2C communication */
+    Init_I2C_GPIO();
+    I2C_init();
+
+    /* Initialize OPT3001 digital ambient light sensor */
+    OPT3001_init();
 
 
 
     while (1)
     {
+        float lux = OPT3001_getLux();
+
         if(burglar_here()){
           burglar_alarm();
         }

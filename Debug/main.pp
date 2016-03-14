@@ -47,6 +47,8 @@ main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/timer32.h
 main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/timer_a.h
 main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/uart.h
 main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/wdt_a.h
+main.obj: ../HAL_I2C.h
+main.obj: ../HAL_OPT3001.h
 
 ../main.c: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/msp.h: 
@@ -95,3 +97,5 @@ main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/wdt_a.h
 /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/timer_a.h: 
 /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/uart.h: 
 /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/wdt_a.h: 
+../HAL_I2C.h: 
+../HAL_OPT3001.h: 
