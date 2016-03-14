@@ -11,6 +11,7 @@ main.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr
 main.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h
 main.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h
 main.obj: ../alarm.h
+main.obj: ../doorbell.h
 main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/driverlib.h
 main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/adc14.h
 main.obj: /home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/include/stdbool.h
@@ -58,6 +59,7 @@ main.obj: /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/wdt_a.h
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h: 
 ../alarm.h: 
+../doorbell.h: 
 /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/driverlib.h: 
 /home/daniel/Programs/ti/workspace2/driverlib/MSP432P4xx/adc14.h: 
 /home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/include/stdbool.h: 

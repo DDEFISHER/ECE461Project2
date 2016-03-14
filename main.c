@@ -7,7 +7,10 @@
 #include "msp.h"
 #include "stdint.h"
 #include "alarm.h"
+#include "doorbell.h"
 #include "driverlib.h"
+
+
 
 #define INT_ADC14_BIT (1<<24)
 #define MCLK_FREQUENCY 1500000
@@ -70,15 +73,21 @@ int main(void)
     __enable_interrupt();                   // Enable NVIC global/master interrupt
     SCB_SCR &= ~SCB_SCR_SLEEPONEXIT;        // Wake up on exit from ISR
 
+
+
+
     while (1)
     {
-        //sample_adc();
-
-        if((P1IN & BIT4) == 0){
+        if(burglar_here()){
+          burglar_alarm();
+        }
+        else if((P1IN & BIT4) == 0){
 
         P2OUT |= BIT1;//turn on led2     
         ring_doorbell();
         }
+
+        sample_mic();
     }
 
 }

@@ -6,39 +6,33 @@
  */
 #include "msp.h"
 
-#define INT_ADC14_BIT (1<<24)
-#define MCLK_FREQUENCY 1500000
-#define PWM_PERIOD (MCLK_FREQUENCY/2000)
+#define DUTY_CYCLE 410
 
-void alarm(unsigned int);
+unsigned int badguy_here = 0;
 
-void sample_adc()
+void sample_mic()
 {
-	  uint32_t adcResult, dutyCycle;
-	  volatile uint32_t i;
-
 
 	  ADC14CTL0 |= ADC14ENC |ADC14SC ;    // Start sampling/conversion
 	  __wfi();                            // alternatively you can also use __sleep();
 
-	  adcResult = ADC14MEM0;
-	  dutyCycle = PWM_PERIOD * 8977 / 16384;
-
-
-	  if (dutyCycle == 0)
-		  dutyCycle  = 1;
-
-	  if(ADC14MEM0 > 9000)
-	  {
-		  alarm(dutyCycle);
+	  if(ADC14MEM0 > 9000){
+		  badguy_here = 1;
 	  }
 
-
 }
-
-void alarm(unsigned int dutyCycle)
+int burglar_here()
 {
-	 TA0CCR0 = dutyCycle;                // Change PWM period based on ADC result
+    if(badguy_here){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+void burglar_alarm()
+{
+	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
 }

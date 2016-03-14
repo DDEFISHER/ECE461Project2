@@ -12,36 +12,12 @@
  */
 #include "msp.h"
 
-#define INT_ADC14_BIT (1<<24)
-#define MCLK_FREQUENCY 1500000
-#define PWM_PERIOD (MCLK_FREQUENCY/2000)
-
-void bell(unsigned int);
+#define DUTY_CYCLE 410
 
 void ring_doorbell()
 {
-	  uint32_t adcResult, dutyCycle;
 
-
-	  ADC14CTL0 |= ADC14ENC |ADC14SC ;    // Start sampling/conversion
-	  __wfi();                            // alternatively you can also use __sleep();
-
-	  adcResult = ADC14MEM0;
-	  dutyCycle = PWM_PERIOD * 8977 / 16384;
-
-
-	  if (dutyCycle == 0)
-		  dutyCycle  = 1;
-
-		  bell(dutyCycle);
-
-
-}
-
-void bell(unsigned int dutyCycle)
-{
-
-	 TA0CCR0 = dutyCycle;                // Change PWM period based on ADC result
+	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
    volatile uint32_t i = 100000;
@@ -61,7 +37,7 @@ void bell(unsigned int dutyCycle)
      i--;
    }
 
-	 TA0CCR0 = dutyCycle*2;                // Change PWM period based on ADC result
+	 TA0CCR0 = DUTY_CYCLE*2;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
    i = 100000;
@@ -81,7 +57,7 @@ void bell(unsigned int dutyCycle)
      i--;
    }
 
-	 TA0CCR0 = dutyCycle;                // Change PWM period based on ADC result
+	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
    i = 100000;
