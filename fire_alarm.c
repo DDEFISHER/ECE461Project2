@@ -11,6 +11,8 @@
 
 #define DUTY_CYCLE 410
 
+unsigned int fire = 0;
+
 void fire_alarm()
 {
 	 TA0CCR0 = DUTY_CYCLE;                // turn on sound
@@ -20,7 +22,7 @@ void fire_alarm()
 
    //delay for bell 
    while(i > 0){
-     i--;
+       i--;
    }
 
    i = 100000;
@@ -30,20 +32,34 @@ void fire_alarm()
 
    //delay for bell 
    while(i > 0){
-     i--;
+       i--;
    }
 
 }
-int check_flux()
+void check_flux()
 {
 
   float flux = OPT3001_getLux();
 
+  if(fire){
+      return;
+  }
   if( flux > 2200 ){
-    return 1;
+
+      fire = 1;
   }
   else{
-    return 0;
+
+      fire = 0;
   }
+}
+int on_fire()
+{
+
+  if(!fire){
+      check_flux();
+  }
+  
+  return fire;
 
 }

@@ -23,12 +23,14 @@ void sample_mic()
 	  __wfi();                            // alternatively you can also use __sleep();
 
 	  if(ADC14MEM0 > 9000){
-		  badguy_here = 1;
+        badguy_here = 1;
 	  }
 
 }
 int burglar_here()
 {
+    sample_mic();
+
     if(badguy_here){
         return 1;
     }

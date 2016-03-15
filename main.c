@@ -27,13 +27,10 @@ int main(void)
 {
     init();
     
-    //variable to store if fire happened
-    unsigned int fire = 0;
-
     while (1)
     {
 
-        if( fire ){
+        if( on_fire() ){
             fire_alarm();
         }
         else if( alarm_status && burglar_here() ){
@@ -49,14 +46,6 @@ int main(void)
 
         }
 
-        //check noise level if alarm active
-        sample_mic();
-
-        //if a fire has not happened then check the flux level
-        if( !fire ){
-        fire = check_flux();
-        }
-        
         MAP_WDT_A_clearTimer(); 
     }
 
