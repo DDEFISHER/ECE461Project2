@@ -13,9 +13,6 @@
 #include "HAL_OPT3001.h"
 
 #define INT_ADC14_BIT (1<<24)
-#define MCLK_FREQUENCY 1500000
-#define PWM_PERIOD (MCLK_FREQUENCY/2000)
-
 
 int main(void)
 {
@@ -43,19 +40,13 @@ int main(void)
     P1DIR |= BIT0;			// make P1.0 an output
     P2DIR |= BIT1;			// make P2.1 an output
 
-    //P6SEL1 |= BIT0;                         // Configure P6.0 for ADC
-    //P6SEL0 |= BIT0;
-
-
     P2SEL0 |= BIT7;						    // Configure P2.7 as Timer A PWM output for buzzer
     P2SEL1 &= ~BIT7;
     P2DIR |= BIT7;
 
     /* Configure TimerA0 */
 
-    //TA0CCR0 = PWM_PERIOD;                   // PWM Period
     TA0CCTL4 = OUTMOD_7;                    // CCR1 reset/set
-    //TA0CCR4 = PWM_PERIOD/2;                 // CCR1 PWM duty cycle
     TA0CTL = TASSEL__SMCLK | MC__UP | TACLR;  // SMCLK, up mode, clear TAR
 
     /* Configure ADC14
@@ -81,15 +72,19 @@ int main(void)
     OPT3001_init();
 
 
+    //variable to store ambient light lux in
+    float lux;
 
     while (1)
     {
-        float lux = OPT3001_getLux();
+        lux = OPT3001_getLux();
 
-        if(burglar_here()){
+        if( lux > 200 ){
+        }
+        else if( burglar_here() ){
           burglar_alarm();
         }
-        else if((P1IN & BIT4) == 0){
+        else if( (P1IN & BIT4 ) == 0){
 
         P2OUT |= BIT1;//turn on led2     
         ring_doorbell();
