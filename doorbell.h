@@ -1,10 +1,9 @@
 /*
- * doorbell.h
+ * doorbell.h - header file for the door bell
  *
  *  Created on: Mar 14, 2016
- *      Author: daniel
+ *      Author: Daniel DeFisher
  */
-
 #ifndef DOORBELL_H_
 #define DOORBELL_H_
 

@@ -1,8 +1,8 @@
 /*
- * adc14.h
+ * alarm.h - header for burglar alarm 
  *
  *  Created on: Mar 14, 2016
- *      Author: daniel
+ *      Author: Daniel DeFisher
  */
 
 #ifndef ALARM_H_

@@ -1,14 +1,8 @@
 /*
- * doorbell.c
+ * doorbell.c - functions for the doorbell
  *
  *  Created on: Mar 14, 2016
- *      Author: daniel
- */
-/*
- * adc14.c
- *
- *  Created on: Mar 14, 2016
- *      Author: daniel
+ *      Author: Daniel DeFisher
  */
 #include "msp.h"
 #include "alarm.h"

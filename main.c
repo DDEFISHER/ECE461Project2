@@ -1,7 +1,15 @@
 //*****************************************************************************
-//
-// MSP432 main.c template - Empty main
-//
+// Daniel DeFisher dedefish@ncsu.edu
+// MSP432 main.c - ECE461 project 2
+//          MSP432p401rpz
+//                 ---------------
+//                |               |
+//                |               |
+//   bell buton --|P1.1           |
+//    Alarm set --|P1.4           |
+//   Microphone --|P4.3       P2.7|-->Buzzer
+// Ambiet light --|P4.6       P2.6|-->RGB RED
+//                |           P2.5|-->RGB BLUE
 //****************************************************************************
 
 #include "msp.h"

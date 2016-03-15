@@ -1,8 +1,8 @@
 /*
- * adc14.c
+ * alarm.c - functions for burglar alarm 
  *
  *  Created on: Mar 14, 2016
- *      Author: daniel
+ *      Author: Daniel DeFisher
  */
 #include "msp.h"
 

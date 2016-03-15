@@ -1,8 +1,8 @@
 /*
- * fire_alarm.c
+ * fire_alarm.c - functions for fire alarm
  *
  *  Created on: Mar 14, 2016
- *      Author: daniel
+ *      Author: Daniel DeFisher
  */
 
 #include "msp.h"
