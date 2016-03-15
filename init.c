@@ -66,6 +66,7 @@ void init()
     __enable_interrupt();                   // Enable NVIC global/master interrupt
     SCB_SCR &= ~SCB_SCR_SLEEPONEXIT;        // Wake up on exit from ISR
 
+    //i2c stuff
     /* Initialize I2C communication */
     Init_I2C_GPIO();
     I2C_init();
@@ -73,6 +74,7 @@ void init()
     /* Initialize OPT3001 digital ambient light sensor */
     OPT3001_init();
 
+    //watch dog stuff
     MAP_SysCtl_setWDTTimeoutResetType(SYSCTL_SOFT_RESET);
     MAP_WDT_A_initWatchdogTimer(WDT_A_CLOCKSOURCE_SMCLK,
                                     WDT_A_CLOCKITERATIONS_128M);

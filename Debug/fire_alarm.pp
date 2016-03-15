@@ -10,6 +10,8 @@ fire_alarm.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_c
 fire_alarm.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr.h
 fire_alarm.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h
 fire_alarm.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h
+fire_alarm.obj: ../HAL_I2C.h
+fire_alarm.obj: ../HAL_OPT3001.h
 
 ../fire_alarm.c: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/msp.h: 
@@ -21,3 +23,5 @@ fire_alarm.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_c
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr.h: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h: 
+../HAL_I2C.h: 
+../HAL_OPT3001.h: 

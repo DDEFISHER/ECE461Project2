@@ -8,10 +8,16 @@
 
 #define DUTY_CYCLE 410
 
+extern unsigned int alarm_status;
 unsigned int badguy_here = 0;
 
 void sample_mic()
 {
+
+    if(!alarm_status){
+
+        return;
+    }
 
 	  ADC14CTL0 |= ADC14ENC |ADC14SC ;    // Start sampling/conversion
 	  __wfi();                            // alternatively you can also use __sleep();

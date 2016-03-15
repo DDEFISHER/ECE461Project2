@@ -6,12 +6,14 @@
  */
 
 #include "msp.h"
+#include "HAL_I2C.h"
+#include "HAL_OPT3001.h"
 
 #define DUTY_CYCLE 410
 
 void fire_alarm()
 {
-	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
+	 TA0CCR0 = DUTY_CYCLE;                // turn on sound
 	 TA0CCR4 = TA0CCR0 / 2;
 
    volatile uint32_t i = 100000;
@@ -23,7 +25,7 @@ void fire_alarm()
 
    i = 100000;
 
-	 TA0CCR0 = 1;                // Change PWM period based on ADC result
+	 TA0CCR0 = 1;                // turn off sound
 	 TA0CCR4 = TA0CCR0 / 2;
 
    //delay for bell 
@@ -35,9 +37,9 @@ void fire_alarm()
 int check_flux()
 {
 
-  float lux = OPT3001_getLux();
+  float flux = OPT3001_getLux();
 
-  if( lux > 200 ){
+  if( flux > 2200 ){
     return 1;
   }
   else{

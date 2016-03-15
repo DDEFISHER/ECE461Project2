@@ -11,74 +11,50 @@
  *      Author: daniel
  */
 #include "msp.h"
+#include "alarm.h"
 
 #define DUTY_CYCLE 410
 
 void ring_doorbell()
 {
 
-	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
+    unsigned int bell_count = 0;
 
-   volatile uint32_t i = 100000;
+    for(bell_count = 0; bell_count < 5; bell_count++){
 
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
+        if( bell_count == 0 ){
+            TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
+        }
+        else if( bell_count == 1 ){
+            TA0CCR0 = 1;                // Change PWM period based on ADC result
+        }
+        else if( bell_count == 2 ){
+            TA0CCR0 = DUTY_CYCLE*2;                // Change PWM period based on ADC result
+        }
+        else if( bell_count == 3 ){
+            TA0CCR0 = 1;                // Change PWM period based on ADC result
+        }
+        else if( bell_count == 4 ){
+            TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
+        }
 
-   i = 100000;
+        TA0CCR4 = TA0CCR0 / 2;  //square wave
 
-	 TA0CCR0 = 1;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
+        volatile uint32_t i = 100000;
 
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
+        //delay for bell 
+        while(i > 0){
+         i--;
+        }
 
-	 TA0CCR0 = DUTY_CYCLE*2;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
+        if( bell_count == 4 ){
 
-   i = 100000;
+            TA0CCR0 = 1;                // Change PWM period based on ADC result
+        }
 
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
-
-   i = 100000;
-
-	 TA0CCR0 = 1;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
-
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
-
-	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
-
-   i = 100000;
-
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
-
-   i = 100000;
-
-	 TA0CCR0 = 1;                // Change PWM period based on ADC result
-	 TA0CCR4 = TA0CCR0 / 2;
-
-   //delay for bell 
-   while(i > 0){
-     i--;
-   }
-
-
-
+        sample_mic();
+        i = 100000;
+    }
 }
 
 

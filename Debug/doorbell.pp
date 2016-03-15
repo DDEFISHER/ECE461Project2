@@ -10,6 +10,7 @@ doorbell.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4
 doorbell.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr.h
 doorbell.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h
 doorbell.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h
+doorbell.obj: ../alarm.h
 
 ../doorbell.c: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/msp.h: 
@@ -21,3 +22,4 @@ doorbell.obj: /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmS
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr.h: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h: 
 /home/daniel/Programs/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h: 
+../alarm.h: 

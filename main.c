@@ -11,6 +11,8 @@
 #include "driverlib.h"
 #include "init.h"
 
+unsigned int alarm_status = 0;
+
 #define INT_ADC14_BIT (1<<24)
 
 int main(void)
@@ -19,7 +21,6 @@ int main(void)
     
     //variable to store if fire happened
     unsigned int fire = 0;
-    unsigned int alarm_status = 0;
 
     while (1)
     {
@@ -41,9 +42,7 @@ int main(void)
         }
 
         //check noise level if alarm active
-        if( alarm_status ){
-          sample_mic();
-        }
+        sample_mic();
 
         //if a fire has not happened then check the flux level
         if( !fire ){
