@@ -32,7 +32,7 @@ int burglar_here()
 }
 void burglar_alarm()
 {
-	 TA0CCR0 = DUTY_CYCLE;                // Change PWM period based on ADC result
+	 TA0CCR0 = DUTY_CYCLE*3;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
 }
