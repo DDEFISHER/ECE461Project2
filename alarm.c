@@ -36,3 +36,22 @@ void burglar_alarm()
 	 TA0CCR4 = TA0CCR0 / 2;
 
 }
+unsigned int alarm_button(unsigned int alarm_status)
+{
+
+    if( alarm_status ){
+        P2OUT &= ~BIT1;//turn on led2     
+        alarm_status = 0;
+    }
+    else{
+        P2OUT |= BIT1;//turn on led2     
+        alarm_status = 1;
+    }
+
+    unsigned int i;
+
+    for(i = 0; i < 50000;i++);
+
+    return alarm_status;
+
+}

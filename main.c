@@ -75,6 +75,7 @@ int main(void)
 
     //variable to store if fire happened
     unsigned int fire = 0;
+    unsigned int alarm_status = 0;
 
     while (1)
     {
@@ -82,17 +83,23 @@ int main(void)
         if( fire ){
             fire_alarm();
         }
-        else if( burglar_here() ){
+        else if( alarm_status && burglar_here() ){
             burglar_alarm();
         }
         else if( (P1IN & BIT4 ) == 0){ 
 
-            P2OUT |= BIT1;//turn on led2     
             ring_doorbell();
         }
+        else if( (P1IN & BIT1 ) == 0){ 
 
-        //check noise level
-        sample_mic();
+            alarm_status = alarm_button(alarm_status);
+
+        }
+
+        //check noise level if alarm active
+        if( alarm_status ){
+          sample_mic();
+        }
 
         //if a fire has not happened then check the flux level
         if( !fire ){
@@ -101,7 +108,6 @@ int main(void)
     }
 
 }
-
 void ADC14IsrHandler(void)
 {
     /* Clear ADC14 IFG */
