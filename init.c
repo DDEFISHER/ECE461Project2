@@ -12,11 +12,8 @@
 
 #define INT_ADC14_BIT (1<<24)
 
-void init()
-{
-
-    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
-
+//init all ports
+void init_ports(){
 
     /* GPIO Setup */
     P4SEL1 |= BIT3;                         // Configure P4.3 for ADC mic
@@ -45,10 +42,18 @@ void init()
     P2SEL1 &= ~BIT7;
     P2DIR |= BIT7;
 
+}
+//init the timer a0 used for pwm
+init_timer_a0()
+{
     /* Configure TimerA0 */
 
     TA0CCTL4 = OUTMOD_7;                    // CCR1 reset/set
     TA0CTL = TASSEL__SMCLK | MC__UP | TACLR;  // SMCLK, up mode, clear TAR
+}
+//init the adc for the mic
+init_adc()
+{
 
     /* Configure ADC14
      * Sampling time, S&H=96, ADC14 on
@@ -65,17 +70,34 @@ void init()
     __enable_interrupt();                   // Enable NVIC global/master interrupt
     SCB_SCR &= ~SCB_SCR_SLEEPONEXIT;        // Wake up on exit from ISR
 
-    //i2c stuff
+}
+//init i2c for the light sensor
+init_i2c()
+{
     /* Initialize I2C communication */
     Init_I2C_GPIO();
     I2C_init();
 
     /* Initialize OPT3001 digital ambient light sensor */
     OPT3001_init();
+}
+//function to inialize board that calls other helper functions for each task
+void init()
+{
 
-    //watch dog stuff
+    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
+
+    init_ports();
+
+    init_timer_a0();
+
+    init_adc();
+
+    init_i2c();
+
+    //Configure watch dog
     MAP_SysCtl_setWDTTimeoutResetType(SYSCTL_SOFT_RESET);
     MAP_WDT_A_initWatchdogTimer(WDT_A_CLOCKSOURCE_SMCLK,
                                     WDT_A_CLOCKITERATIONS_128M);
-    MAP_WDT_A_startTimer();
+    MAP_WDT_A_startTimer(); //start watchdog tiger
 }

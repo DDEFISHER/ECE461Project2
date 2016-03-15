@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker Unix v5.2.6                    
 ******************************************************************************
->> Linked Tue Mar 15 16:19:15 2016
+>> Linked Tue Mar 15 16:48:49 2016
 
 OUTPUT FILE NAME:   <ece461_p2.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000199d
@@ -45,14 +45,14 @@ section   page    origin      length       input sections
                   00000144    00000794     i2c.obj (.text)
                   000008d8    00000488     gpio.obj (.text)
                   00000d60    000003f0     interrupt.obj (.text)
-                  00001150    00000168     init.obj (.text)
-                  000012b8    0000013c     HAL_OPT3001.obj (.text)
-                  000013f4    00000118     HAL_I2C.obj (.text)
-                  0000150c    000000d4     alarm.obj (.text)
-                  000015e0    000000bc     fire_alarm.obj (.text)
-                  0000169c    000000a8     doorbell.obj (.text)
-                  00001744    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
-                  000017e0    0000007a                                   : memset_t2.obj (.text)
+                  00001150    00000180     init.obj (.text)
+                  000012d0    0000013c     HAL_OPT3001.obj (.text)
+                  0000140c    00000118     HAL_I2C.obj (.text)
+                  00001524    000000dc     alarm.obj (.text)
+                  00001600    000000bc     fire_alarm.obj (.text)
+                  000016bc    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00001758    00000088     doorbell.obj (.text)
+                  000017e0    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
                   0000185a    00000002     --HOLE-- [fill = 0]
                   0000185c    0000006c                                   : autoinit.obj (.text)
                   000018c8    0000006a                                   : copy_decompress_rle.obj (.text)
@@ -166,7 +166,7 @@ address   name
 000007e7  I2C_getMode                                
 000006e3  I2C_getReceiveBufferAddressForDMA          
 000006f1  I2C_getTransmitBufferAddressForDMA         
-0000140d  I2C_init                                   
+00001425  I2C_init                                   
 00000145  I2C_initMaster                             
 000001a7  I2C_initSlave                              
 0000029b  I2C_isBusBusy                              
@@ -190,16 +190,16 @@ address   name
 000002ad  I2C_masterSendSingleByte                   
 00000313  I2C_masterSendSingleByteWithTimeout        
 00000729  I2C_masterSendStart                        
-00001425  I2C_read16                                 
+0000143d  I2C_read16                                 
 000007fd  I2C_registerInterrupt                      
 00000221  I2C_setMode                                
 0000020d  I2C_setSlaveAddress                        
-000014ef  I2C_setslave                               
+00001507  I2C_setslave                               
 00000287  I2C_slaveGetData                           
 00000271  I2C_slavePutData                           
 00000863  I2C_unregisterInterrupt                    
-000014ab  I2C_write16                                
-000013f5  Init_I2C_GPIO                              
+000014c3  I2C_write16                                
+0000140d  Init_I2C_GPIO                              
 00000f23  Interrupt_disableInterrupt                 
 00000d73  Interrupt_disableMaster                    
 00001121  Interrupt_disableSleepOnIsrExit            
@@ -219,13 +219,13 @@ address   name
 000010f9  Interrupt_setVectorTableAddress            
 00001091  Interrupt_unpendInterrupt                  
 00000dd5  Interrupt_unregisterInterrupt              
-0000131d  OPT3001_getLux                             
-000012b9  OPT3001_init                               
-000012ed  OPT3001_readConfigReg                      
-000012dd  OPT3001_readDeviceId                       
-0000130d  OPT3001_readHighLimitReg                   
-000012fd  OPT3001_readLowLimitReg                    
-000012cd  OPT3001_readManufacturerId                 
+00001335  OPT3001_getLux                             
+000012d1  OPT3001_init                               
+00001305  OPT3001_readConfigReg                      
+000012f5  OPT3001_readDeviceId                       
+00001325  OPT3001_readHighLimitReg                   
+00001315  OPT3001_readLowLimitReg                    
+000012e5  OPT3001_readManufacturerId                 
 UNDEFED   SHT$$INIT_ARRAY$$Base                      
 UNDEFED   SHT$$INIT_ARRAY$$Limit                     
 4000480c  WDTCTL_SYM                                 
@@ -245,9 +245,9 @@ UNDEFED   SHT$$INIT_ARRAY$$Limit
 000017e1  __aeabi_memclr                             
 000017e1  __aeabi_memclr4                            
 000017e1  __aeabi_memclr8                            
-00001745  __aeabi_memcpy                             
-00001745  __aeabi_memcpy4                            
-00001745  __aeabi_memcpy8                            
+000016bd  __aeabi_memcpy                             
+000016bd  __aeabi_memcpy4                            
+000016bd  __aeabi_memcpy8                            
 000017e3  __aeabi_memset                             
 000017e3  __aeabi_memset4                            
 000017e3  __aeabi_memset8                            
@@ -263,28 +263,32 @@ ffffffff  __c_args__
 00001b15  _system_pre_init                           
 200000e8  _unlock                                    
 00001a3d  abort                                      
-00001563  alarm_button                               
+00001585  alarm_button                               
 200000fc  alarm_status                               
 200000f4  badguy_here                                
 ffffffff  binit                                      
-0000154b  burglar_alarm                              
-00001537  burglar_here                               
-0000163b  check_flux                                 
+0000156d  burglar_alarm                              
+0000154f  burglar_here                               
+0000165b  check_flux                                 
 000019ed  copy_in                                    
 00001a45  exit                                       
 200000f8  fire                                       
-000015e1  fire_alarm                                 
+00001601  fire_alarm                                 
 20000000  g_pfnRAMVectors                            
 00001bf4  i2cConfig                                  
-00001151  init                                       
+00001243  init                                       
+000011fb  init_adc                                   
+00001233  init_i2c                                   
+00001151  init_ports                                 
+000011e9  init_timer_a0                              
 00000000  interruptVectors                           
 00001935  main                                       
 20000100  main_func_sp                               
-00001745  memcpy                                     
+000016bd  memcpy                                     
 000017e9  memset                                     
-00001677  on_fire                                    
-0000169d  ring_doorbell                              
-00001511  sample_mic                                 
+00001697  on_fire                                    
+00001759  ring_doorbell                              
+00001529  sample_mic                                 
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -374,31 +378,35 @@ address   name
 00001109  Interrupt_getVectorTableAddress            
 0000110f  Interrupt_enableSleepOnIsrExit             
 00001121  Interrupt_disableSleepOnIsrExit            
-00001151  init                                       
-000012b9  OPT3001_init                               
-000012cd  OPT3001_readManufacturerId                 
-000012dd  OPT3001_readDeviceId                       
-000012ed  OPT3001_readConfigReg                      
-000012fd  OPT3001_readLowLimitReg                    
-0000130d  OPT3001_readHighLimitReg                   
-0000131d  OPT3001_getLux                             
-000013f5  Init_I2C_GPIO                              
-0000140d  I2C_init                                   
-00001425  I2C_read16                                 
-000014ab  I2C_write16                                
-000014ef  I2C_setslave                               
-00001511  sample_mic                                 
-00001537  burglar_here                               
-0000154b  burglar_alarm                              
-00001563  alarm_button                               
-000015e1  fire_alarm                                 
-0000163b  check_flux                                 
-00001677  on_fire                                    
-0000169d  ring_doorbell                              
-00001745  __aeabi_memcpy                             
-00001745  __aeabi_memcpy4                            
-00001745  __aeabi_memcpy8                            
-00001745  memcpy                                     
+00001151  init_ports                                 
+000011e9  init_timer_a0                              
+000011fb  init_adc                                   
+00001233  init_i2c                                   
+00001243  init                                       
+000012d1  OPT3001_init                               
+000012e5  OPT3001_readManufacturerId                 
+000012f5  OPT3001_readDeviceId                       
+00001305  OPT3001_readConfigReg                      
+00001315  OPT3001_readLowLimitReg                    
+00001325  OPT3001_readHighLimitReg                   
+00001335  OPT3001_getLux                             
+0000140d  Init_I2C_GPIO                              
+00001425  I2C_init                                   
+0000143d  I2C_read16                                 
+000014c3  I2C_write16                                
+00001507  I2C_setslave                               
+00001529  sample_mic                                 
+0000154f  burglar_here                               
+0000156d  burglar_alarm                              
+00001585  alarm_button                               
+00001601  fire_alarm                                 
+0000165b  check_flux                                 
+00001697  on_fire                                    
+000016bd  __aeabi_memcpy                             
+000016bd  __aeabi_memcpy4                            
+000016bd  __aeabi_memcpy8                            
+000016bd  memcpy                                     
+00001759  ring_doorbell                              
 000017e1  __aeabi_memclr                             
 000017e1  __aeabi_memclr4                            
 000017e1  __aeabi_memclr8                            
@@ -451,4 +459,4 @@ ffffffff  binit
 UNDEFED   SHT$$INIT_ARRAY$$Base                      
 UNDEFED   SHT$$INIT_ARRAY$$Limit                     
 
-[159 symbols]
+[163 symbols]

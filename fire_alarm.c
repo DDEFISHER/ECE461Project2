@@ -13,6 +13,7 @@
 
 unsigned int fire = 0;
 
+//fire alarm tone for buzzer
 void fire_alarm()
 {
 	 TA0CCR0 = DUTY_CYCLE;                // turn on sound
@@ -36,6 +37,7 @@ void fire_alarm()
    }
 
 }
+//check flux of light sensor and set fire bool based on that
 void check_flux()
 {
 
@@ -53,6 +55,7 @@ void check_flux()
       fire = 0;
   }
 }
+//check if on fire or not
 int on_fire()
 {
 

@@ -11,6 +11,7 @@
 extern unsigned int alarm_status;
 unsigned int badguy_here = 0;
 
+//sample the mic with adc14 and set if bad guy is here
 void sample_mic()
 {
 
@@ -27,8 +28,13 @@ void sample_mic()
 	  }
 
 }
+//check if bad_guy was already here or is here now
 int burglar_here()
 {
+    if(badguy_here){
+        return 1;
+    }
+
     sample_mic();
 
     if(badguy_here){
@@ -38,12 +44,14 @@ int burglar_here()
         return 0;
     }
 }
+//set buzzer to alarm tone
 void burglar_alarm()
 {
 	 TA0CCR0 = DUTY_CYCLE*3;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
 }
+//activate and deactive alarm with button and display on RGB led the status
 unsigned int alarm_button(unsigned int alarm_status)
 {
 
