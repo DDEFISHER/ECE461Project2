@@ -8,6 +8,7 @@
 #include "stdint.h"
 #include "alarm.h"
 #include "doorbell.h"
+#include "fire_alarm.h"
 #include "driverlib.h"
 #include "HAL_I2C.h"
 #include "HAL_OPT3001.h"
@@ -72,25 +73,31 @@ int main(void)
     OPT3001_init();
 
 
-    //variable to store ambient light lux in
-    float lux;
+    //variable to store if fire happened
+    unsigned int fire = 0;
 
     while (1)
     {
-        lux = OPT3001_getLux();
 
-        if( lux > 200 ){
+        if( fire ){
+            fire_alarm();
         }
         else if( burglar_here() ){
-          burglar_alarm();
+            burglar_alarm();
         }
-        else if( (P1IN & BIT4 ) == 0){
+        else if( (P1IN & BIT4 ) == 0){ 
 
-        P2OUT |= BIT1;//turn on led2     
-        ring_doorbell();
+            P2OUT |= BIT1;//turn on led2     
+            ring_doorbell();
         }
 
+        //check noise level
         sample_mic();
+
+        //if a fire has not happened then check the flux level
+        if( !fire ){
+        fire = check_flux();
+        }
     }
 
 }

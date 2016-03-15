@@ -12,6 +12,7 @@ C_SRCS += \
 ../alarm.c \
 ../cpu.c \
 ../doorbell.c \
+../fire_alarm.c \
 ../gpio.c \
 ../i2c.c \
 ../interrupt.c \
@@ -24,6 +25,7 @@ OBJS += \
 ./alarm.obj \
 ./cpu.obj \
 ./doorbell.obj \
+./fire_alarm.obj \
 ./gpio.obj \
 ./i2c.obj \
 ./interrupt.obj \
@@ -36,6 +38,7 @@ C_DEPS += \
 ./alarm.pp \
 ./cpu.pp \
 ./doorbell.pp \
+./fire_alarm.pp \
 ./gpio.pp \
 ./i2c.pp \
 ./interrupt.pp \
@@ -48,6 +51,7 @@ C_DEPS__QUOTED += \
 "alarm.pp" \
 "cpu.pp" \
 "doorbell.pp" \
+"fire_alarm.pp" \
 "gpio.pp" \
 "i2c.pp" \
 "interrupt.pp" \
@@ -60,6 +64,7 @@ OBJS__QUOTED += \
 "alarm.obj" \
 "cpu.obj" \
 "doorbell.obj" \
+"fire_alarm.obj" \
 "gpio.obj" \
 "i2c.obj" \
 "interrupt.obj" \
@@ -72,6 +77,7 @@ C_SRCS__QUOTED += \
 "../alarm.c" \
 "../cpu.c" \
 "../doorbell.c" \
+"../fire_alarm.c" \
 "../gpio.c" \
 "../i2c.c" \
 "../interrupt.c" \
