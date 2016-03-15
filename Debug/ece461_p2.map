@@ -1,17 +1,17 @@
 ******************************************************************************
                   TI ARM Linker Unix v5.2.6                    
 ******************************************************************************
->> Linked Tue Mar 15 00:51:47 2016
+>> Linked Tue Mar 15 01:06:58 2016
 
 OUTPUT FILE NAME:   <ece461_p2.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 000019d9
+ENTRY POINT SYMBOL: "_c_int00"  address: 000019d1
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  MAIN                  00000000   00040000  00001c7c  0003e384  R  X
+  MAIN                  00000000   00040000  00001c74  0003e38c  R  X
   INFO                  00200000   00004000  00000000  00004000  R  X
   SRAM_CODE             01000000   00010000  00000000  00010000  RW X
   SRAM_DATA             20000000   00010000  000002fc  0000fd04  RW  
@@ -21,11 +21,11 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00001c80   00001c80    r-x
+00000000    00000000    00001c78   00001c78    r-x
   00000000    00000000    00000144   00000144    r-- .intvecs
-  00000144    00000144    00001a10   00001a10    r-x .text
-  00001b54    00001b54    000000f0   000000f0    r-- .const
-  00001c48    00001c48    00000038   00000038    r-- .cinit
+  00000144    00000144    00001a08   00001a08    r-x .text
+  00001b4c    00001b4c    000000f0   000000f0    r-- .const
+  00001c40    00001c40    00000038   00000038    r-- .cinit
 20000000    20000000    000000fc   00000000    rw-
   20000000    20000000    000000e4   00000000    rw- .vtable
   200000e4    200000e4    00000018   00000000    rw- .data
@@ -41,49 +41,50 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    00000144     
                   00000000    00000144     msp432_startup_ccs.obj (.intvecs:retain)
 
-.text      0    00000144    00001a10     
+.text      0    00000144    00001a08     
                   00000144    00000794     i2c.obj (.text)
                   000008d8    00000488     gpio.obj (.text)
                   00000d60    000003f0     interrupt.obj (.text)
-                  00001150    000001dc     main.obj (.text)
-                  0000132c    0000013c     HAL_OPT3001.obj (.text)
-                  00001468    00000118     HAL_I2C.obj (.text)
-                  00001580    0000010c     doorbell.obj (.text)
-                  0000168c    000000c4     alarm.obj (.text)
-                  00001750    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
-                  000017ec    00000098     fire_alarm.obj (.text)
-                  00001884    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
-                  000018fe    00000002     --HOLE-- [fill = 0]
-                  00001900    0000006c                                   : autoinit.obj (.text)
-                  0000196c    0000006a                                   : copy_decompress_rle.obj (.text)
-                  000019d6    00000002     --HOLE-- [fill = 0]
-                  000019d8    00000050                                   : boot.obj (.text)
-                  00001a28    0000004c                                   : cpy_tbl.obj (.text)
-                  00001a74    00000044                                   : exit.obj (.text)
-                  00001ab8    0000003e     cpu.obj (.text)
-                  00001af6    00000002     --HOLE-- [fill = 0]
-                  00001af8    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
-                  00001b10    00000014                                   : _lock.obj (.text)
-                  00001b24    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
-                  00001b32    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
-                  00001b3e    0000000c     msp432_startup_ccs.obj (.text)
-                  00001b4a    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
-                  00001b50    00000004                                   : pre_init.obj (.text)
+                  00001150    0000015c     init.obj (.text)
+                  000012ac    0000013c     HAL_OPT3001.obj (.text)
+                  000013e8    00000118     HAL_I2C.obj (.text)
+                  00001500    0000010c     doorbell.obj (.text)
+                  0000160c    000000c4     alarm.obj (.text)
+                  000016d0    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000176c    00000098     fire_alarm.obj (.text)
+                  00001804    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  0000187e    00000002     --HOLE-- [fill = 0]
+                  00001880    00000078     main.obj (.text)
+                  000018f8    0000006c     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.obj (.text)
+                  00001964    0000006a                                   : copy_decompress_rle.obj (.text)
+                  000019ce    00000002     --HOLE-- [fill = 0]
+                  000019d0    00000050                                   : boot.obj (.text)
+                  00001a20    0000004c                                   : cpy_tbl.obj (.text)
+                  00001a6c    00000044                                   : exit.obj (.text)
+                  00001ab0    0000003e     cpu.obj (.text)
+                  00001aee    00000002     --HOLE-- [fill = 0]
+                  00001af0    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00001b08    00000014                                   : _lock.obj (.text)
+                  00001b1c    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00001b2a    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00001b36    0000000c     msp432_startup_ccs.obj (.text)
+                  00001b42    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00001b48    00000004                                   : pre_init.obj (.text)
 
-.const     0    00001b54    000000f0     
-                  00001b54    00000050     interrupt.obj (.const:g_pulRegs)
-                  00001ba4    00000040     interrupt.obj (.const)
-                  00001be4    00000030     gpio.obj (.const:GPIO_PORT_TO_BASE)
-                  00001c14    0000001c     gpio.obj (.const)
-                  00001c30    00000014     HAL_I2C.obj (.const)
+.const     0    00001b4c    000000f0     
+                  00001b4c    00000050     interrupt.obj (.const:g_pulRegs)
+                  00001b9c    00000040     interrupt.obj (.const)
+                  00001bdc    00000030     gpio.obj (.const:GPIO_PORT_TO_BASE)
+                  00001c0c    0000001c     gpio.obj (.const)
+                  00001c28    00000014     HAL_I2C.obj (.const)
 
-.cinit     0    00001c48    00000038     
-                  00001c48    0000000f     (.cinit..data.load) [load image, compression = rle]
-                  00001c57    00000001     --HOLE-- [fill = 0]
-                  00001c58    0000000c     (__TI_handler_table)
-                  00001c64    00000004     --HOLE-- [fill = 0]
-                  00001c68    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
-                  00001c70    00000010     (__TI_cinit_table)
+.cinit     0    00001c40    00000038     
+                  00001c40    0000000f     (.cinit..data.load) [load image, compression = rle]
+                  00001c4f    00000001     --HOLE-- [fill = 0]
+                  00001c50    0000000c     (__TI_handler_table)
+                  00001c5c    00000004     --HOLE-- [fill = 0]
+                  00001c60    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  00001c68    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
@@ -106,14 +107,14 @@ section   page    origin      length       input sections
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00001c70 records: 2, size/record: 8, table size: 16
-	.data: load addr=00001c48, load size=0000000f bytes, run addr=200000e4, run size=00000018 bytes, compression=rle
-	.vtable: load addr=00001c68, load size=00000008 bytes, run addr=20000000, run size=000000e4 bytes, compression=zero_init
+__TI_cinit_table @ 00001c68 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001c40, load size=0000000f bytes, run addr=200000e4, run size=00000018 bytes, compression=rle
+	.vtable: load addr=00001c60, load size=00000008 bytes, run addr=20000000, run size=000000e4 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00001c58 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00001c50 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_rle24
 	index: 2, handler: __TI_decompress_none
@@ -123,14 +124,14 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                                       
 -------   ----                                       
-000012cb  ADC14IsrHandler                            
-00001a75  C$$EXIT                                    
-00001aed  CPU_basepriGet                             
-00001adf  CPU_basepriSet                             
-00001ab9  CPU_cpsid                                  
-00001acf  CPU_cpsie                                  
-00001ac5  CPU_primask                                
-00001adb  CPU_wfi                                    
+000018e3  ADC14IsrHandler                            
+00001a6d  C$$EXIT                                    
+00001ae5  CPU_basepriGet                             
+00001ad7  CPU_basepriSet                             
+00001ab1  CPU_cpsid                                  
+00001ac7  CPU_cpsie                                  
+00001abd  CPU_primask                                
+00001ad3  CPU_wfi                                    
 00000c03  GPIO_clearInterruptFlag                    
 00000bc3  GPIO_disableInterrupt                      
 00000ba1  GPIO_enableInterrupt                       
@@ -163,7 +164,7 @@ address   name
 000007e7  I2C_getMode                                
 000006e3  I2C_getReceiveBufferAddressForDMA          
 000006f1  I2C_getTransmitBufferAddressForDMA         
-00001481  I2C_init                                   
+00001401  I2C_init                                   
 00000145  I2C_initMaster                             
 000001a7  I2C_initSlave                              
 0000029b  I2C_isBusBusy                              
@@ -187,16 +188,16 @@ address   name
 000002ad  I2C_masterSendSingleByte                   
 00000313  I2C_masterSendSingleByteWithTimeout        
 00000729  I2C_masterSendStart                        
-00001499  I2C_read16                                 
+00001419  I2C_read16                                 
 000007fd  I2C_registerInterrupt                      
 00000221  I2C_setMode                                
 0000020d  I2C_setSlaveAddress                        
-00001563  I2C_setslave                               
+000014e3  I2C_setslave                               
 00000287  I2C_slaveGetData                           
 00000271  I2C_slavePutData                           
 00000863  I2C_unregisterInterrupt                    
-0000151f  I2C_write16                                
-00001469  Init_I2C_GPIO                              
+0000149f  I2C_write16                                
+000013e9  Init_I2C_GPIO                              
 00000f23  Interrupt_disableInterrupt                 
 00000d73  Interrupt_disableMaster                    
 00001121  Interrupt_disableSleepOnIsrExit            
@@ -216,68 +217,69 @@ address   name
 000010f9  Interrupt_setVectorTableAddress            
 00001091  Interrupt_unpendInterrupt                  
 00000dd5  Interrupt_unregisterInterrupt              
-00001391  OPT3001_getLux                             
-0000132d  OPT3001_init                               
-00001361  OPT3001_readConfigReg                      
-00001351  OPT3001_readDeviceId                       
-00001381  OPT3001_readHighLimitReg                   
-00001371  OPT3001_readLowLimitReg                    
-00001341  OPT3001_readManufacturerId                 
+00001311  OPT3001_getLux                             
+000012ad  OPT3001_init                               
+000012e1  OPT3001_readConfigReg                      
+000012d1  OPT3001_readDeviceId                       
+00001301  OPT3001_readHighLimitReg                   
+000012f1  OPT3001_readLowLimitReg                    
+000012c1  OPT3001_readManufacturerId                 
 UNDEFED   SHT$$INIT_ARRAY$$Base                      
 UNDEFED   SHT$$INIT_ARRAY$$Limit                     
 4000480c  WDTCTL_SYM                                 
 20010000  __STACK_END                                
 00000200  __STACK_SIZE                               
-00001c70  __TI_CINIT_Base                            
-00001c80  __TI_CINIT_Limit                           
-00001c58  __TI_Handler_Table_Base                    
-00001c64  __TI_Handler_Table_Limit                   
-00001901  __TI_auto_init                             
+00001c68  __TI_CINIT_Base                            
+00001c78  __TI_CINIT_Limit                           
+00001c50  __TI_Handler_Table_Base                    
+00001c5c  __TI_Handler_Table_Limit                   
+000018f9  __TI_auto_init                             
 200000ec  __TI_cleanup_ptr                           
-00001b25  __TI_decompress_none                       
-00001b4b  __TI_decompress_rle24                      
+00001b1d  __TI_decompress_none                       
+00001b43  __TI_decompress_rle24                      
 200000f0  __TI_dtors_ptr                             
 00000000  __TI_static_base__                         
-00001b33  __TI_zero_init                             
-00001885  __aeabi_memclr                             
-00001885  __aeabi_memclr4                            
-00001885  __aeabi_memclr8                            
-00001751  __aeabi_memcpy                             
-00001751  __aeabi_memcpy4                            
-00001751  __aeabi_memcpy8                            
-00001887  __aeabi_memset                             
-00001887  __aeabi_memset4                            
-00001887  __aeabi_memset8                            
+00001b2b  __TI_zero_init                             
+00001805  __aeabi_memclr                             
+00001805  __aeabi_memclr4                            
+00001805  __aeabi_memclr8                            
+000016d1  __aeabi_memcpy                             
+000016d1  __aeabi_memcpy4                            
+000016d1  __aeabi_memcpy8                            
+00001807  __aeabi_memset                             
+00001807  __aeabi_memset4                            
+00001807  __aeabi_memset8                            
 ffffffff  __binit__                                  
 ffffffff  __c_args__                                 
 2000fe00  __stack                                    
-00001af9  _args_main                                 
-000019d9  _c_int00                                   
+00001af1  _args_main                                 
+000019d1  _c_int00                                   
 200000e4  _lock                                      
-00001b1f  _nop                                       
-00001b17  _register_lock                             
-00001b11  _register_unlock                           
-00001b51  _system_pre_init                           
+00001b17  _nop                                       
+00001b0f  _register_lock                             
+00001b09  _register_unlock                           
+00001b49  _system_pre_init                           
 200000e8  _unlock                                    
-00001a79  abort                                      
-000016d7  alarm_button                               
+00001a71  abort                                      
+00001657  alarm_button                               
 200000f4  badguy_here                                
 ffffffff  binit                                      
-000016bf  burglar_alarm                              
-000016b1  burglar_here                               
-00001847  check_flux                                 
-00001a29  copy_in                                    
-00001a81  exit                                       
-000017ed  fire_alarm                                 
+0000163f  burglar_alarm                              
+00001631  burglar_here                               
+000017c7  check_flux                                 
+00001a21  copy_in                                    
+00001a79  exit                                       
+0000176d  fire_alarm                                 
 20000000  g_pfnRAMVectors                            
-00001c30  i2cConfig                                  
+00001c28  i2cConfig                                  
+00001151  init                                       
 00000000  interruptVectors                           
-00001151  main                                       
+00001881  main                                       
 200000f8  main_func_sp                               
-00001751  memcpy                                     
-0000188d  memset                                     
-00001581  ring_doorbell                              
-00001691  sample_mic                                 
+000016d1  memcpy                                     
+0000180d  memset                                     
+00001501  ring_doorbell                              
+00001611  sample_mic                                 
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -367,63 +369,64 @@ address   name
 00001109  Interrupt_getVectorTableAddress            
 0000110f  Interrupt_enableSleepOnIsrExit             
 00001121  Interrupt_disableSleepOnIsrExit            
-00001151  main                                       
-000012cb  ADC14IsrHandler                            
-0000132d  OPT3001_init                               
-00001341  OPT3001_readManufacturerId                 
-00001351  OPT3001_readDeviceId                       
-00001361  OPT3001_readConfigReg                      
-00001371  OPT3001_readLowLimitReg                    
-00001381  OPT3001_readHighLimitReg                   
-00001391  OPT3001_getLux                             
-00001469  Init_I2C_GPIO                              
-00001481  I2C_init                                   
-00001499  I2C_read16                                 
-0000151f  I2C_write16                                
-00001563  I2C_setslave                               
-00001581  ring_doorbell                              
-00001691  sample_mic                                 
-000016b1  burglar_here                               
-000016bf  burglar_alarm                              
-000016d7  alarm_button                               
-00001751  __aeabi_memcpy                             
-00001751  __aeabi_memcpy4                            
-00001751  __aeabi_memcpy8                            
-00001751  memcpy                                     
-000017ed  fire_alarm                                 
-00001847  check_flux                                 
-00001885  __aeabi_memclr                             
-00001885  __aeabi_memclr4                            
-00001885  __aeabi_memclr8                            
-00001887  __aeabi_memset                             
-00001887  __aeabi_memset4                            
-00001887  __aeabi_memset8                            
-0000188d  memset                                     
-00001901  __TI_auto_init                             
-000019d9  _c_int00                                   
-00001a29  copy_in                                    
-00001a75  C$$EXIT                                    
-00001a79  abort                                      
-00001a81  exit                                       
-00001ab9  CPU_cpsid                                  
-00001ac5  CPU_primask                                
-00001acf  CPU_cpsie                                  
-00001adb  CPU_wfi                                    
-00001adf  CPU_basepriSet                             
-00001aed  CPU_basepriGet                             
-00001af9  _args_main                                 
-00001b11  _register_unlock                           
-00001b17  _register_lock                             
-00001b1f  _nop                                       
-00001b25  __TI_decompress_none                       
-00001b33  __TI_zero_init                             
-00001b4b  __TI_decompress_rle24                      
-00001b51  _system_pre_init                           
-00001c30  i2cConfig                                  
-00001c58  __TI_Handler_Table_Base                    
-00001c64  __TI_Handler_Table_Limit                   
-00001c70  __TI_CINIT_Base                            
-00001c80  __TI_CINIT_Limit                           
+00001151  init                                       
+000012ad  OPT3001_init                               
+000012c1  OPT3001_readManufacturerId                 
+000012d1  OPT3001_readDeviceId                       
+000012e1  OPT3001_readConfigReg                      
+000012f1  OPT3001_readLowLimitReg                    
+00001301  OPT3001_readHighLimitReg                   
+00001311  OPT3001_getLux                             
+000013e9  Init_I2C_GPIO                              
+00001401  I2C_init                                   
+00001419  I2C_read16                                 
+0000149f  I2C_write16                                
+000014e3  I2C_setslave                               
+00001501  ring_doorbell                              
+00001611  sample_mic                                 
+00001631  burglar_here                               
+0000163f  burglar_alarm                              
+00001657  alarm_button                               
+000016d1  __aeabi_memcpy                             
+000016d1  __aeabi_memcpy4                            
+000016d1  __aeabi_memcpy8                            
+000016d1  memcpy                                     
+0000176d  fire_alarm                                 
+000017c7  check_flux                                 
+00001805  __aeabi_memclr                             
+00001805  __aeabi_memclr4                            
+00001805  __aeabi_memclr8                            
+00001807  __aeabi_memset                             
+00001807  __aeabi_memset4                            
+00001807  __aeabi_memset8                            
+0000180d  memset                                     
+00001881  main                                       
+000018e3  ADC14IsrHandler                            
+000018f9  __TI_auto_init                             
+000019d1  _c_int00                                   
+00001a21  copy_in                                    
+00001a6d  C$$EXIT                                    
+00001a71  abort                                      
+00001a79  exit                                       
+00001ab1  CPU_cpsid                                  
+00001abd  CPU_primask                                
+00001ac7  CPU_cpsie                                  
+00001ad3  CPU_wfi                                    
+00001ad7  CPU_basepriSet                             
+00001ae5  CPU_basepriGet                             
+00001af1  _args_main                                 
+00001b09  _register_unlock                           
+00001b0f  _register_lock                             
+00001b17  _nop                                       
+00001b1d  __TI_decompress_none                       
+00001b2b  __TI_zero_init                             
+00001b43  __TI_decompress_rle24                      
+00001b49  _system_pre_init                           
+00001c28  i2cConfig                                  
+00001c50  __TI_Handler_Table_Base                    
+00001c5c  __TI_Handler_Table_Limit                   
+00001c68  __TI_CINIT_Base                            
+00001c78  __TI_CINIT_Limit                           
 20000000  g_pfnRAMVectors                            
 200000e4  _lock                                      
 200000e8  _unlock                                    
@@ -440,4 +443,4 @@ ffffffff  binit
 UNDEFED   SHT$$INIT_ARRAY$$Base                      
 UNDEFED   SHT$$INIT_ARRAY$$Limit                     
 
-[155 symbols]
+[156 symbols]

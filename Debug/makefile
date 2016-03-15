@@ -16,6 +16,7 @@ ORDERED_OBJS += \
 "./fire_alarm.obj" \
 "./gpio.obj" \
 "./i2c.obj" \
+"./init.obj" \
 "./interrupt.obj" \
 "./main.obj" \
 "./msp432_startup_ccs.obj" \
@@ -157,8 +158,8 @@ ece461_p2.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "HAL_I2C.pp" "HAL_OPT3001.pp" "alarm.pp" "cpu.pp" "doorbell.pp" "fire_alarm.pp" "gpio.pp" "i2c.pp" "interrupt.pp" "main.pp" "msp432_startup_ccs.pp" 
-	-$(RM) "HAL_I2C.obj" "HAL_OPT3001.obj" "alarm.obj" "cpu.obj" "doorbell.obj" "fire_alarm.obj" "gpio.obj" "i2c.obj" "interrupt.obj" "main.obj" "msp432_startup_ccs.obj" 
+	-$(RM) "HAL_I2C.pp" "HAL_OPT3001.pp" "alarm.pp" "cpu.pp" "doorbell.pp" "fire_alarm.pp" "gpio.pp" "i2c.pp" "init.pp" "interrupt.pp" "main.pp" "msp432_startup_ccs.pp" 
+	-$(RM) "HAL_I2C.obj" "HAL_OPT3001.obj" "alarm.obj" "cpu.obj" "doorbell.obj" "fire_alarm.obj" "gpio.obj" "i2c.obj" "init.obj" "interrupt.obj" "main.obj" "msp432_startup_ccs.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

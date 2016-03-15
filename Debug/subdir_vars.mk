@@ -15,6 +15,7 @@ C_SRCS += \
 ../fire_alarm.c \
 ../gpio.c \
 ../i2c.c \
+../init.c \
 ../interrupt.c \
 ../main.c \
 ../msp432_startup_ccs.c 
@@ -28,6 +29,7 @@ OBJS += \
 ./fire_alarm.obj \
 ./gpio.obj \
 ./i2c.obj \
+./init.obj \
 ./interrupt.obj \
 ./main.obj \
 ./msp432_startup_ccs.obj 
@@ -41,6 +43,7 @@ C_DEPS += \
 ./fire_alarm.pp \
 ./gpio.pp \
 ./i2c.pp \
+./init.pp \
 ./interrupt.pp \
 ./main.pp \
 ./msp432_startup_ccs.pp 
@@ -54,6 +57,7 @@ C_DEPS__QUOTED += \
 "fire_alarm.pp" \
 "gpio.pp" \
 "i2c.pp" \
+"init.pp" \
 "interrupt.pp" \
 "main.pp" \
 "msp432_startup_ccs.pp" 
@@ -67,6 +71,7 @@ OBJS__QUOTED += \
 "fire_alarm.obj" \
 "gpio.obj" \
 "i2c.obj" \
+"init.obj" \
 "interrupt.obj" \
 "main.obj" \
 "msp432_startup_ccs.obj" 
@@ -80,6 +85,7 @@ C_SRCS__QUOTED += \
 "../fire_alarm.c" \
 "../gpio.c" \
 "../i2c.c" \
+"../init.c" \
 "../interrupt.c" \
 "../main.c" \
 "../msp432_startup_ccs.c" 
