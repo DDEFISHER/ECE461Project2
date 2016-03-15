@@ -34,6 +34,7 @@ void init()
     P1OUT |= BIT4;			// make it a pull-up resistor
 
     P2OUT &= ~BIT4;     //start green off red on
+    P2OUT |= BIT6;
 
     P2DIR |= BIT6;			// make P2.6 an output - rgb red
 
