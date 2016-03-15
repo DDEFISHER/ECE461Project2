@@ -40,11 +40,13 @@ unsigned int alarm_button(unsigned int alarm_status)
 {
 
     if( alarm_status ){
-        P2OUT &= ~BIT1;//turn on led2     
+        P2OUT &= ~BIT4;//turn off green rgb     
+        P2OUT |= BIT6;//turn on red rgb
         alarm_status = 0;
     }
     else{
-        P2OUT |= BIT1;//turn on led2     
+        P2OUT &= ~BIT6;//turn off red rgb     
+        P2OUT |= BIT4;//turn on green rgb
         alarm_status = 1;
     }
 

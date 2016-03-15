@@ -37,9 +37,15 @@ int main(void)
 
     //set up LED1 and LED2
     P1OUT &= ~BIT0;     //start off
-    P2OUT &= ~BIT1;     //start off
     P1DIR |= BIT0;			// make P1.0 an output
-    P2DIR |= BIT1;			// make P2.1 an output
+
+    P2OUT &= ~BIT4;     //start green off red on
+
+    P2DIR |= BIT6;			// make P2.6 an output - rgb red
+
+    P2DIR |= BIT4;			// make P2.4 an output - rgb green
+
+    
 
     P2SEL0 |= BIT7;						    // Configure P2.7 as Timer A PWM output for buzzer
     P2SEL1 &= ~BIT7;
@@ -72,6 +78,10 @@ int main(void)
     /* Initialize OPT3001 digital ambient light sensor */
     OPT3001_init();
 
+    MAP_SysCtl_setWDTTimeoutResetType(SYSCTL_SOFT_RESET);
+    MAP_WDT_A_initWatchdogTimer(WDT_A_CLOCKSOURCE_SMCLK,
+                                    WDT_A_CLOCKITERATIONS_128M);
+    MAP_WDT_A_startTimer();
 
     //variable to store if fire happened
     unsigned int fire = 0;
@@ -105,6 +115,8 @@ int main(void)
         if( !fire ){
         fire = check_flux();
         }
+        
+        MAP_WDT_A_clearTimer(); 
     }
 
 }
