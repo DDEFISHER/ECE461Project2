@@ -8,7 +8,7 @@
 //          SW1 --|P1.1           |
 //          SW2 --|P1.4           |
 //   Microphone --|P4.3       P2.7|-->Buzzer
-// Ambient light --|P4.6       P2.6|-->RGB RED
+//Ambient light --|P4.6       P2.6|-->RGB RED
 //                |           P2.5|-->RGB BLUE
 //****************************************************************************
 
@@ -34,19 +34,19 @@ int main(void)
             fire_alarm();
         }
         //alarm is second priority call alarm if there is a break in and first event did not happen
-        else if( alarm_status && burglar_here() ){
+        //activate or deactive burglar alarm - last priority
+        else if( (P1IN & BIT1 ) == 0){ 
+
+            alarm_status = alarm_button(alarm_status);
+
+        }
+        else if( burglar_here() ){
             burglar_alarm();
         }
         //door bell is third priority ring if button is pushed and first two events did not happen
         else if( (P1IN & BIT4 ) == 0){ 
 
             ring_doorbell();
-        }
-        //activate or deactive burglar alarm - last priority
-        else if( (P1IN & BIT1 ) == 0){ 
-
-            alarm_status = alarm_button(alarm_status);
-
         }
 
         MAP_WDT_A_clearTimer(); //service watch dog timer 

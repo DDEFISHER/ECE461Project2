@@ -47,7 +47,7 @@ int burglar_here()
 //set buzzer to alarm tone
 void burglar_alarm()
 {
-	 TA0CCR0 = DUTY_CYCLE*3;                // Change PWM period based on ADC result
+   TA0CCR0 = DUTY_CYCLE*3;                // Change PWM period based on ADC result
 	 TA0CCR4 = TA0CCR0 / 2;
 
 }
@@ -59,16 +59,19 @@ unsigned int alarm_button(unsigned int alarm_status)
         P2OUT &= ~BIT4;//turn off green rgb     
         P2OUT |= BIT6;//turn on red rgb
         alarm_status = 0;
+        badguy_here = 0;
+        TA0CCR0 = 1;                // Change PWM period based on ADC result
     }
     else{
         P2OUT &= ~BIT6;//turn off red rgb     
         P2OUT |= BIT4;//turn on green rgb
         alarm_status = 1;
+        badguy_here = 0;
     }
 
     unsigned int i;
 
-    for(i = 0; i < 50000;i++);
+    for(i = 0; i < 100000;i++);
 
     return alarm_status;
 
