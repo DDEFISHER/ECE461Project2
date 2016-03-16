@@ -145,7 +145,7 @@ all: ece461_p2.out
 ece461_p2.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP432 Linker'
-	"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --advice:power=all -g --gcc --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs --display_error_number --diag_warning=225 --diag_wrap=off -z -m"ece461_p2.map" --heap_size=1024 --stack_size=512 -i"/home/daniel/Programs/ti/ccsv6/ccs_base/arm/include" -i"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/lib" -i"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="ece461_p2_linkInfo.xml" --rom_model -o "ece461_p2.out" $(ORDERED_OBJS)
+	"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --opt_for_speed=4 --advice:power=all -g --gcc --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs --display_error_number --diag_warning=225 --diag_wrap=off -z -m"ece461_p2.map" --heap_size=1024 --stack_size=512 -i"/home/daniel/Programs/ti/ccsv6/ccs_base/arm/include" -i"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/lib" -i"/home/daniel/Programs/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="ece461_p2_linkInfo.xml" --rom_model -o "ece461_p2.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

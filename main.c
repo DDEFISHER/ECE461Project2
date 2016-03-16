@@ -21,6 +21,7 @@
 
 unsigned int alarm_status = 0;
 
+int speed_analysis[5];
 //main function that contains allmight while loop then completes the tasks of project 2 based on priority
 int main(void)
 {
@@ -33,13 +34,13 @@ int main(void)
         if( on_fire() ){
             fire_alarm();
         }
-        //alarm is second priority call alarm if there is a break in and first event did not happen
-        //activate or deactive burglar alarm - last priority
+        //activate or deactive burglar alarm second priority
         else if( (P1IN & BIT1 ) == 0){ 
 
             alarm_status = alarm_button(alarm_status);
 
         }
+        //alarm is third priority call alarm if there is a break in and first event did not happen
         else if( burglar_here() ){
             burglar_alarm();
         }

@@ -12,10 +12,12 @@
 #define DUTY_CYCLE 410
 
 unsigned int fire = 0;
+extern int speed_analysis[5];
 
 //fire alarm tone for buzzer
 void fire_alarm()
 {
+    speed_analysis[3]++;
 	 TA0CCR0 = DUTY_CYCLE;                // turn on sound
 	 TA0CCR4 = TA0CCR0 / 2;
 
@@ -41,6 +43,7 @@ void fire_alarm()
 void check_flux()
 {
 
+    speed_analysis[4]++;
   float flux = OPT3001_getLux();
 
   if(fire){

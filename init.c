@@ -16,7 +16,7 @@
 void init_ports(){
 
     /* GPIO Setup */
-    P4SEL1 |= BIT3;                         // Configure P4.3 for ADC mic
+    P4SEL1 |= BIT3;                         // Configure P4.3 for analog in mic
     P4SEL0 |= BIT3;
 
     //set up switch 1
@@ -29,6 +29,7 @@ void init_ports(){
     P1REN |= BIT4;			// enable pull resistor on P1.4
     P1OUT |= BIT4;			// make it a pull-up resistor
 
+    //set up RGB red and green
     P2OUT &= ~BIT4;     //start green off red on
     P2OUT |= BIT6;
 
@@ -38,7 +39,7 @@ void init_ports(){
 
     
 
-    P2SEL0 |= BIT7;						    // Configure P2.7 as Timer A PWM output for buzzer
+    P2SEL0 |= BIT7;						    // Configure P2.7 as PWM out for buzzer
     P2SEL1 &= ~BIT7;
     P2DIR |= BIT7;
 
